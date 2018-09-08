@@ -20,9 +20,20 @@
                 <p>
                     You are now logged in to your profile page!<br> <br>
                     This is your profile: <br><br>
-                    <em>User name: </em><?php echo $user1->getUserName(); ?><br>
-                    <em>Email address: </em><?php echo $user1->getEmailAddress(); ?><br>
-                    <em>Password: </em><?php echo $user1->getUserPassword(); ?><br><br>
+                    <table align="center">
+                        <tr>
+                            <th>User name</th>
+                            <th>Email address</th>
+                            <th>Password</th>
+                        </tr>
+                        <tr>
+                            <td><?php echo $user1->getUserName(); ?></td>
+                            <td><?php echo $user1->getEmailAddress(); ?></td>
+                            <td><?php echo $user1->getUserPassword(); ?></td>
+                        </tr>
+
+                    </table>
+                <br><br>
                 </p>
                 <p id="small-text">Do you want to log out? Click the button below.</small><br><br>
             
@@ -34,3 +45,22 @@
     
 </body>
 </html>
+
+<table>
+
+<tr>
+ <th scope="col">dog</th>
+ <th scope="col">cat</th>
+ <th scope="col">horse</th>
+
+ <th scope="col">iguana</th>
+</tr>
+<tr>
+ <td>5</td>
+ <td>2</td>
+
+ <td>10</td>
+ <td>500</td>
+</tr>
+...
+</table>
