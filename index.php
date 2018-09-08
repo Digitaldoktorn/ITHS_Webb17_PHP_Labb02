@@ -1,4 +1,9 @@
 <?php
+    ini_set('display_errors', 1);
+    ini_set('display_startup_errors', 1);
+    error_reporting(E_ALL);
+
+
 
 ?>
 
@@ -20,7 +25,7 @@
                     <input class="text-input" name="password" type="password">
             </fieldset>
             <input class="btn" type="submit" name="submit" value="LOGIN">
-            <p><small>Don't have an account? Please <a href="register.php">register here</a></small></p>
+            <p id="small-text">Don't have an account? Please <a href="register.php">register here</a></p>
         </form>
         <a href=""></a>
     </div>

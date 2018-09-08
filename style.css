@@ -4,14 +4,29 @@ body {
 }
 
 div {
-    max-width: 500px;  
+    max-width: 60em;  
     margin: auto;
-    margin-top: 200px; 
+    margin-top: 100px; 
 }
 
 p {
+    font-size: 24px;
+    
+}
+
+section {
+    background-color: aliceblue;
+    width: 40em;
+    padding: 2em;
+    border: .2em dotted lightcoral;
     text-align: center;
+    padding-bottom: 3em;
+}
+
+#small-text{
     text-transform: uppercase;
+    text-align: center;
+    font-size: 14px;
 }
 form {
 
@@ -25,6 +40,10 @@ form {
 fieldset{
     border: white solid .1em;
     padding: 1em;
+}
+
+em {
+    color: grey;
 }
 .text-input {
     padding: 1em;
@@ -42,6 +61,17 @@ fieldset{
     cursor: pointer;
     width: 87%;
     border: solid white 0.3em;
+}
+
+#logout {
+    width: 35%;
+    background-color: steelblue;
+    margin: 0;
+    border: solid lightgreen 0.3em;
+}
+
+#logout:hover {
+    background-color: dodgerblue;
 }
 
 .btn:hover {

@@ -23,16 +23,15 @@
         }
 
         // setters
-        public function setUserName(){
+        public function setUserName($userName){
             $this->userName = $userName;
         }
-        public function setEmailAddress(){
+        public function setEmailAddress($emailAddress){
             $this->emailAddress = $emailAddress;
         }
-        public function setUserPassword(){
+        public function setUserPassword($userPassword){
             $this->userPassword = $userPassword;
         }
-
     }
 
 
