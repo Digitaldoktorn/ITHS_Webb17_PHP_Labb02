@@ -1,6 +1,6 @@
 <?php
     include_once('class.User.php');
-    $user1 = new User("Burt", "burt@cnn.com", "abcd1234");
+    $user1 = new User("Burt", "xyz987");
     
 
 ?>
@@ -19,16 +19,14 @@
             <h1>Welcome <?php echo $user1->getUserName(); ?>! </h1>
                 <p>
                     You are now logged in to your profile page!<br> <br>
-                    This is your profile: <br><br>
+                    This is your profile: <br>
                     <table align="center">
                         <tr>
                             <th>User name</th>
-                            <th>Email address</th>
                             <th>Password</th>
                         </tr>
                         <tr>
                             <td><?php echo $user1->getUserName(); ?></td>
-                            <td><?php echo $user1->getEmailAddress(); ?></td>
                             <td><?php echo $user1->getUserPassword(); ?></td>
                         </tr>
 
@@ -45,22 +43,3 @@
     
 </body>
 </html>
-
-<table>
-
-<tr>
- <th scope="col">dog</th>
- <th scope="col">cat</th>
- <th scope="col">horse</th>
-
- <th scope="col">iguana</th>
-</tr>
-<tr>
- <td>5</td>
- <td>2</td>
-
- <td>10</td>
- <td>500</td>
-</tr>
-...
-</table>

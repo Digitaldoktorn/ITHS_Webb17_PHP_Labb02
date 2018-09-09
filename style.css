@@ -27,6 +27,8 @@ section {
     text-transform: uppercase;
     text-align: center;
     font-size: 14px;
+    border-top: solid grey .1em;
+    padding-top: 1em;
 }
 form {
 
@@ -84,4 +86,15 @@ table, th, td {
 .btn:hover {
     background-color: aquamarine;
 
+}
+
+#alert {
+    font-size: 16px;
+    width: 87%;
+    text-align: center;
+    color: white;
+    background-color: red;
+    padding: 0.3em;
+    border-radius: 0.3em;
+    margin: 1em;
 }
