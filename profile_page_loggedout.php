@@ -8,13 +8,9 @@
 <body>
     <div>
         <section>
-        
-        <h1> </h1>
             <p>
-            You have been logged out successfully!
-                 <br><br><br><br><br><br><br><br><br>
-
-            
+                You have been logged out successfully!
+                <br><br><br><br><br><br><br><br><br>         
             </p>
         </section>
     </div>
