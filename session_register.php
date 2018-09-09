@@ -1,3 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">  
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+</body>
+</html>
 <?php
     // starting session, available for garbage collection in 60s
     session_start(["gc_maxlifetime" => 60]);
@@ -12,10 +22,15 @@
     if(isset($_POST["submit"])){
 
         if(empty($_POST["userName"]) || empty("pw")) {
-            echo "Please fill in the forms.";
+            
+            
+            echo "<p id='alert'>Please fill in the forms.</p>";
+            // sleep(4);
             echo "<script type='text/javascript'>
                 document.location.href = 'register.php'; </script>";
+            
         }
+        
         else {
             // Print data - ändra senare (skriv till fil)
             echo "<pre>";
@@ -38,8 +53,5 @@
         }
 
     }
-
-
-
 
 ?>

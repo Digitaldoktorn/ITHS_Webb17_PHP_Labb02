@@ -33,10 +33,11 @@
                     </table>
                 <br><br>
                 </p>
-                <p id="small-text">Do you want to log out? Click the button below.</small><br><br>
+                <!-- <p id="small-text">Do you want to log out? Click the button below.</small><br><br>
             
             
-                <input class="btn" id="logout" type="submit" name="submit" value="LOG OUT">
+                <input class="btn" id="logout" type="submit" name="submit" value="LOG OUT"> -->
+                <p><a href="profile_page_loggedout.php">LOG OUT</a></p>
             </form>
         </section>
     </div>

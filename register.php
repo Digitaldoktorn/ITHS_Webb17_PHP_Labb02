@@ -17,7 +17,7 @@
 </head>
 <body>
     <div>
-        <form action="session.php" method="POST">
+        <form action="session_register.php" method="POST">
             <fieldset>
                 <legend><strong>CREATE YOUR ACCOUNT</strong></legend>
                     <label for="username">User name</label>

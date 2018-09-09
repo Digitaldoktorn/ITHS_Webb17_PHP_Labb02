@@ -35,11 +35,12 @@
             <input class="btn" type="submit" name="submit" value="LOGIN">
 
             <?php
+            
                 // checking for error messages
-                if(count($errors) > 0) {
-                    echo '
-                            <p id="alert">'.implode('</p><p>', $errors).'</p>
-                        ';
+                if($error) {
+                    echo "<p id='alert'>";
+                    echo $error;
+                    echo "</p>";
                 }
 
             ?>
