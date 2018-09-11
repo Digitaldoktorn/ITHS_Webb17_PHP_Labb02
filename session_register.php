@@ -17,14 +17,18 @@
 
     include_once('class.User.php');
 
+    ini_set('display_errors', 1);
+    ini_set('display_startup_errors', 1);
+    error_reporting(E_ALL);
+
     // check if any value is submitted
     if(isset($_POST["submit"])){
 
         if(empty($_POST["userName"]) || empty($_POST["pw"])) {
             
-            
-            echo "<p id='alert'>Please fill in the forms.</p>";
-            // sleep(2);
+            $error2 = "Please fill in the forms.";
+            // echo "<p id='alert'>Please fill in the forms.</p>";
+            // // sleep(2);
             echo "<script type='text/javascript'>
                 document.location.href = 'register.php'; </script>";
             
@@ -42,7 +46,7 @@
             var_dump($_POST);
             echo "</pre>";
 
-            // Remove "submit" from array -funkar ej
+            // Remove "submit" from array - FUNKAR EJ!
             array_pop($_POST);
 
             // saving data in session

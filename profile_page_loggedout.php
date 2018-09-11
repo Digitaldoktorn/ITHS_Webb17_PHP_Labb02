@@ -9,8 +9,9 @@
     <div>
         <section>
             <p>
+                <br><br><br><br> 
                 You've been logged out successfully!
-                <br><br><br><br><br><br><br><br><br>         
+                <br><br><br><br><br>        
             </p>
         </section>
     </div>
