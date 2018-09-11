@@ -27,7 +27,6 @@ section {
     text-transform: uppercase;
     text-align: center;
     font-size: 14px;
-    border-top: solid grey .1em;
     padding-top: 1em;
 }
 form {

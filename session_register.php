@@ -15,11 +15,12 @@
     // garbage collection on every pageload
     ini_set("session.gc_probability", 100);
 
-    include_once('class.User.php');
-
     ini_set('display_errors', 1);
     ini_set('display_startup_errors', 1);
     error_reporting(E_ALL);
+
+    include_once("class.User.php");
+    $user1 = new User($userName, $userPassword);
 
     // check if any value is submitted
     if(isset($_POST["submit"])){
@@ -43,15 +44,18 @@
         
         if(!empty($_POST["userName"]) || empty("pw")) {
 
-            // removing "submit"-key/value from array
+            $user1->setter($_POST);
+            $user1->saveUserName();
+
+            // removing "submit"-key/value from array - **** FUNKAR EJ MED OOP ****
             $arrayPost = $_POST;
             array_pop($arrayPost);
 
-            // saving username and password to csv file
-            $fileHandle = fopen("user4.csv", "w+");
-            $writeString = serialize($arrayPost) . PHP_EOL;
-            fwrite($fileHandle, $writeString);
-            fclose($fileHandle);
+            // saving username and password to csv file - **** DETTA KODBLOCK LIGGER NU I KLASSEN ****
+            // $fileHandle = fopen("user4.csv", "w+");
+            // $writeString = serialize($arrayPost) . PHP_EOL;
+            // fwrite($fileHandle, $writeString);
+            // fclose($fileHandle);
 
             // saving data in session
             $userName = $_POST["userName"];
@@ -60,4 +64,8 @@
             $_SESSION["pw"] = $_POST["pw"];
         }
     }
+    else {
+        echo $user1->getForm("session_register.php");
+    }
+
 ?>

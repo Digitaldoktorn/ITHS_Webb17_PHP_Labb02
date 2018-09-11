@@ -1,11 +1,12 @@
 <?php
-    // I denna fil:
-    // instansiera user - get registerfunktion
-    // spara värden från användarens input - se sessionsövningarna
-    ini_set('display_errors', 1);
-    ini_set('display_startup_errors', 1);
-    error_reporting(E_ALL);
+    // I denna fil (tror det ska vara i session_register istället):
+    // instansiera user - get registerfunktion - KLART
+    // spara värden från användarens input - se sessionsövningarna - KLART
+    // se session_register
 
+    // ini_set('display_errors', 1);
+    // ini_set('display_startup_errors', 1);
+    // error_reporting(E_ALL);
 
 ?>
 
@@ -25,8 +26,9 @@
                     <input class="text-input" name="userName" type="text">
                     <label for="password">Password</label>
                     <input class="text-input" name="pw" type="password">
+                    <input class="btn" type="submit" name="submit" value="CREATE ACCOUNT">
             </fieldset>
-            <input class="btn" type="submit" name="submit" value="CREATE ACCOUNT">
+            
 
                 <?php
                 // checking for error, print error message - FUNKAR EJ!
@@ -35,9 +37,7 @@
                     echo $error2;
                     echo "</p>";
                 }
-
             ?>
-
             <p id="small-text">Already have an account? Please <a href="index.php">login</a></p>
         </form>
     </div>

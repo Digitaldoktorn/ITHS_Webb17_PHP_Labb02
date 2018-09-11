@@ -24,18 +24,41 @@
         public function setUserPassword($userPassword){
             $this->userPassword = $userPassword;
         }
+        // -----------------------------------------------------
 
-        // save username into csv file (se "mini-library-master")
+        public function setter($postData) {
+            foreach ($postData as $key => $value) {
+              $this->$key = $value;
+            }
+          }
+
+        // saving username and password into csv file
         public function saveUserName() {
-            $fileHandle = fopen("user.csv", "a+");
+            $fileHandle = fopen("user5.csv", "w+");
             $writeString = serialize($this) . PHP_EOL;
             fwrite($fileHandle, $writeString);
             fclose($fileHandle);
         }
 
         // gör formulärskaparfunktion
+        public function getForm($page) {
+            $formString = "<form action='$page' method='POST'>";
+        
+            foreach ($this as $key => $value) {
+        
+              $formString .= "<label for='$key'>$key</label>";
+              $formString .= "<input class='text-input' type ='text' name='$key'><br />";
+        
+            }
+            $formString .= "<input class='btn' type='submit' name='submit' value='LOGIN'>";
+            $formString .= "</form>";
+            return $formString;
+          }
+
         // gör inloggningsfunktion
-        // gör registeringsfunktion
+
+        // gör registeringsfunktion - nästan KLART-behöver variabel i fildöpningen
+
     }
 
 
