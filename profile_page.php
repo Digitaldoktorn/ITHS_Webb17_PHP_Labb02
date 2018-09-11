@@ -1,8 +1,6 @@
 <?php
     include_once('class.User.php');
     $user1 = new User("Burt", "xyz987");
-    
-
 ?>
 
 <!DOCTYPE html>
@@ -15,7 +13,7 @@
 <body>
     <div>
         <section>
-        
+
             <h1>Welcome <?php echo $user1->getUserName(); ?>! </h1>
                 <p>
                     You are now logged in to your profile page!<br> <br>
@@ -33,10 +31,6 @@
                     </table>
                 <br><br>
                 </p>
-                <!-- <p id="small-text">Do you want to log out? Click the button below.</small><br><br>
-            
-            
-                <input class="btn" id="logout" type="submit" name="submit" value="LOG OUT"> -->
                 <p><a href="profile_page_loggedout.php">LOG OUT</a></p>
             </form>
         </section>

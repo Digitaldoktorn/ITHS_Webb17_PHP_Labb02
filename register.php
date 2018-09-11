@@ -1,9 +1,7 @@
 <?php
-    session_start();
-    if(isset($_SESSION["psw"])){
-        echo "funkar";
-    }
-    unset($_SESSION["psw"]);
+    // I denna fil:
+    // instansiera user - get registerfunktion
+    // spara värden från användarens input - se sessionsövningarna
 
 
 ?>
@@ -26,6 +24,7 @@
                     <input class="text-input" name="pw" type="password">
             </fieldset>
             <input class="btn" type="submit" name="submit" value="CREATE ACCOUNT">
+
             <p id="small-text">Already have an account? Please <a href="index.php">login</a></p>
         </form>
     </div>

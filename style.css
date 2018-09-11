@@ -4,7 +4,7 @@ body {
 }
 
 div {
-    max-width: 60em;  
+    max-width: 500px;
     margin: auto;
     margin-top: 100px; 
 }
@@ -16,11 +16,11 @@ p {
 
 section {
     background-color: aliceblue;
-    width: 40em;
-    padding: 2em;
     border: .2em dotted lightcoral;
     text-align: center;
-    padding-bottom: 3em;
+    padding: 1em;
+    margin: 1em;
+    width: 20em;
 }
 
 #small-text{

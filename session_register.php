@@ -16,22 +16,27 @@
     ini_set("session.gc_probability", 100);
 
     include_once('class.User.php');
-    $user2 = new User("Lisa", "xyz987654");
 
     // check if any value is submitted
     if(isset($_POST["submit"])){
 
-        if(empty($_POST["userName"]) || empty("pw")) {
+        if(empty($_POST["userName"]) || empty($_POST["pw"])) {
             
             
             echo "<p id='alert'>Please fill in the forms.</p>";
-            // sleep(4);
+            // sleep(2);
             echo "<script type='text/javascript'>
                 document.location.href = 'register.php'; </script>";
             
+            
         }
+        // if(!empty($_POST["userName"]) || empty("pw")) {
+
+        //     // sending user to log in page
+        //     header("Location: index.php");
+        // }
         
-        else {
+        if(!empty($_POST["userName"]) || empty("pw")) {
             // Print data - ändra senare (skriv till fil)
             echo "<pre>";
             var_dump($_POST);
@@ -40,17 +45,16 @@
             // Remove "submit" from array -funkar ej
             array_pop($_POST);
 
-            // store username (se "mini-library-master")
-            $user2->setter($_POST);
-            echo $user2->getter();
-            $user2->saveUserName();
-
+            // saving data in session
             $userName = $_POST["userName"];
             $_SESSION["userName"] = $_POST["userName"];
             $password = $_POST["pw"];
             $_SESSION["pw"] = $_POST["pw"];
 
+
         }
+        
+
 
     }
 

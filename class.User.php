@@ -32,6 +32,10 @@
             fwrite($fileHandle, $writeString);
             fclose($fileHandle);
         }
+
+        // gör formulärskaparfunktion
+        // gör inloggningsfunktion
+        // gör registeringsfunktion
     }
 
 

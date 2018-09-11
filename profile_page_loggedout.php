@@ -9,7 +9,7 @@
     <div>
         <section>
             <p>
-                You have been logged out successfully!
+                You've been logged out successfully!
                 <br><br><br><br><br><br><br><br><br>         
             </p>
         </section>
@@ -18,7 +18,7 @@
 <script>
     setTimeout(function(){
         window.location = "index.php";
-        }, 4000);
+        }, 2000);
 </script>
 </html>
 

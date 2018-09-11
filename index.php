@@ -1,18 +1,14 @@
 <?php
-    // session_start();
-    // if(isset($_SESSION["psw"])){
-    //     echo "funkar";
-    // }
-    // unset($_SESSION["psw"]);
+
+    // i denna fil: 
+    // instansiera objekt av user, get form-funktion
+    // instansiera objekt av user, get inloggningsfunktion
 
     ini_set('display_errors', 1);
     ini_set('display_startup_errors', 1);
     error_reporting(E_ALL);
 
     require_once "session_login.php";
-
-
-
 ?>
 
 <!DOCTYPE html>
@@ -35,8 +31,7 @@
             <input class="btn" type="submit" name="submit" value="LOGIN">
 
             <?php
-            
-                // checking for error messages
+                // checking for error, print error message
                 if($error) {
                     echo "<p id='alert'>";
                     echo $error;
@@ -47,6 +42,6 @@
             <p id="small-text">Don't have an account? Please <a href="register.php">register here</a></p>
         </form>
     </div>
-    
+
 </body>
 </html>
