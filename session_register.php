@@ -34,6 +34,7 @@
             
             
         }
+        // Ska skicka tillbaka till Login-sidan - FUNKAR EJ
         // if(!empty($_POST["userName"]) || empty("pw")) {
 
         //     // sending user to log in page
@@ -41,25 +42,22 @@
         // }
         
         if(!empty($_POST["userName"]) || empty("pw")) {
-            // Print data - ändra senare (skriv till fil)
-            echo "<pre>";
-            var_dump($_POST);
-            echo "</pre>";
 
-            // Remove "submit" from array - FUNKAR EJ!
-            array_pop($_POST);
+            // removing "submit"-key/value from array
+            $arrayPost = $_POST;
+            array_pop($arrayPost);
+
+            // saving username and password to csv file
+            $fileHandle = fopen("user4.csv", "w+");
+            $writeString = serialize($arrayPost) . PHP_EOL;
+            fwrite($fileHandle, $writeString);
+            fclose($fileHandle);
 
             // saving data in session
             $userName = $_POST["userName"];
             $_SESSION["userName"] = $_POST["userName"];
             $password = $_POST["pw"];
             $_SESSION["pw"] = $_POST["pw"];
-
-
         }
-        
-
-
     }
-
 ?>
