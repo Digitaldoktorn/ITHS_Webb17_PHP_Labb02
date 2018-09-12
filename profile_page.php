@@ -1,6 +1,6 @@
 <?php
     include_once('class.User.php');
-    $user1 = new User("Burt", "xyz987");
+    $user1 = new User();
 ?>
 
 <!DOCTYPE html>

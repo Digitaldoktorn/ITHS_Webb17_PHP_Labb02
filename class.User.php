@@ -21,7 +21,7 @@
             }
           }
 
-        // saving username and password into csv file
+        // Register user - saving username and password into csv file
         public function saveUserName() {
             $fileHandle = fopen($this->userName . ".csv", "w+"); // lagt in $this->userName
             $writeString = serialize($this->userName) . serialize($this->userPassword) . PHP_EOL;
@@ -29,9 +29,9 @@
             fclose($fileHandle);
         }
 
-        // gör formulärskaparfunktion
+        // create form function
         public function getForm($page) {
-            $formString = "<form action='$page' method='POST'>";
+            $formString = "<form action=$page method='POST'>";
         
             foreach ($this as $key => $value) {
         
@@ -44,9 +44,27 @@
             return $formString;
           }
 
-        // gör inloggningsfunktion
+        // Logging in user - comparing user input with user csv file
+        public function loginUser($postData){
+            
+            $csvUserData = array_map('str_getcsv', file($postData['userName'] . ".csv"));
+            $csvUserName = $csvUserData[0];
+            $csvUserPassword = $csvUserData[1];
+            //print_r($csvUserName);
+            //print_r($userPassword);
 
-        // gör registeringsfunktion - KLART
+            if($postData["userName"] != $csvUserName || $postData["userPassword"] != $csvUserPassword){
+                $error = "Your username and/or password was not entered correctly. Please try again.";
+            }
+
+            else {
+                // sending user to logged in page
+                header("Location: profile_page.php");
+            }
+
+
+
+        }
 
     }
 

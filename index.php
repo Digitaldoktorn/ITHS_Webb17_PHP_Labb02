@@ -27,11 +27,13 @@
                     <label for="username">User name</label>
                     <input class="text-input" name="userName" type="text">
                     <label for="password">Password</label>
-                    <input class="text-input" name="pw" type="password">
+                    <input class="text-input" name="userPassword" type="password">
             </fieldset>
             <input class="btn" type="submit" name="submit" value="LOGIN">
 
             <?php
+
+
             /*
                 // checking for error, print error message
                 if($error) {

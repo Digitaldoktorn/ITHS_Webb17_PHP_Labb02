@@ -25,7 +25,7 @@
     // check if any value is submitted
     if(isset($_POST["submit"])){
 
-        if(empty($_POST["userName"]) || empty($_POST["pw"])) {
+        if(empty($_POST["userName"]) || empty($_POST["userPassword"])) {
             
             $error2 = "Please fill in the forms.";
             // echo "<p id='alert'>Please fill in the forms.</p>";
@@ -36,13 +36,13 @@
             
         }
         // Ska skicka tillbaka till Login-sidan - FUNKAR EJ
-        // if(!empty($_POST["userName"]) || empty("pw")) {
+        // if(!empty($_POST["userName"]) || empty("userPassword")) {
 
         //     // sending user to log in page
         //     header("Location: index.php");
         // }
         
-        if(!empty($_POST["userName"]) || empty("pw")) {
+        if(!empty($_POST["userName"]) || empty("userPassword")) {
             $user1 = new User();
             $arrayPost = $_POST;
             array_pop($arrayPost); // removes submit value from array
@@ -58,8 +58,8 @@
             // saving data in session
             $userName = $_POST["userName"];
             $_SESSION["userName"] = $_POST["userName"];
-            $password = $_POST["pw"];
-            $_SESSION["pw"] = $_POST["pw"];
+            $password = $_POST["userPassword"];
+            $_SESSION["userPassword"] = $_POST["userPassword"];
         }
     }
     else {
