@@ -8,14 +8,11 @@
     // error_reporting(E_ALL);
 
     include_once("class.User.php");
-    $user1 = new User($userName, $userPassword);
 
     // checking if submit button is clicked
     if(isset($_POST["submit"])){
         
-
-        $userName = "Burt";
-        $password = "xyz987";
+        // läs in fil - unserialize
 
         if($_POST["userName"] != $userName || $_POST["pw"] != $password){
             $error = "Your username and/or password was not entered correctly. Please try again.";

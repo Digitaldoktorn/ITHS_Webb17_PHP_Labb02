@@ -3,12 +3,6 @@
         private $userName;
         private $userPassword;
 
-        // constructor
-        function __construct($userName, $userPassword){
-            $this->setUserName($userName);
-            $this->setUserPassword($userPassword);
-        }
-
         // getters
         public function getUserName(){
             return $this->userName;
@@ -17,13 +11,8 @@
             return $this->userPassword;
         }
 
-        // setters
-        public function setUserName($userName){
-            $this->userName = $userName;
-        }
-        public function setUserPassword($userPassword){
-            $this->userPassword = $userPassword;
-        }
+        // tog bort constructor och setters - överflödiga
+
         // -----------------------------------------------------
 
         public function setter($postData) {
@@ -34,8 +23,8 @@
 
         // saving username and password into csv file
         public function saveUserName() {
-            $fileHandle = fopen("user5.csv", "w+");
-            $writeString = serialize($this) . PHP_EOL;
+            $fileHandle = fopen($this->userName . ".csv", "w+"); // lagt in $this->userName
+            $writeString = serialize($this->userName) . serialize($this->userPassword) . PHP_EOL;
             fwrite($fileHandle, $writeString);
             fclose($fileHandle);
         }
@@ -57,7 +46,7 @@
 
         // gör inloggningsfunktion
 
-        // gör registeringsfunktion - nästan KLART-behöver variabel i fildöpningen
+        // gör registeringsfunktion - KLART
 
     }
 

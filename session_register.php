@@ -20,7 +20,7 @@
     error_reporting(E_ALL);
 
     include_once("class.User.php");
-    $user1 = new User($userName, $userPassword);
+    
 
     // check if any value is submitted
     if(isset($_POST["submit"])){
@@ -43,13 +43,11 @@
         // }
         
         if(!empty($_POST["userName"]) || empty("pw")) {
-
-            $user1->setter($_POST);
-            $user1->saveUserName();
-
-            // removing "submit"-key/value from array - **** FUNKAR EJ MED OOP ****
+            $user1 = new User();
             $arrayPost = $_POST;
-            array_pop($arrayPost);
+            array_pop($arrayPost); // removes submit value from array
+            $user1->setter($arrayPost);
+            $user1->saveUserName();   
 
             // saving username and password to csv file - **** DETTA KODBLOCK LIGGER NU I KLASSEN ****
             // $fileHandle = fopen("user4.csv", "w+");
