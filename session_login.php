@@ -15,38 +15,14 @@
 
         $user1->loginUser($_POST);
         
-        // HAR FLYTTAT KODBLOCKET TILL KLASSEN:
-        // if($_POST["userName"] != $userName || $_POST["userPassword"] != $password){
-        //     $error = "Your username and/or password was not entered correctly. Please try again.";
-        // }
-
-        // checking if there are errors
-        // if(!$error){
-
-        //     // sending user to logged in page
-        //     header("Location: profile_page.php");
-        // }
     }
     
     else {?>
         <div>
             <?php echo $user1->getForm("session_login.php"); ?>
-                <fieldset>
-                    <legend><strong>USER LOGIN</strong></legend>
 
-                        
-
-                           <p id="small-text">Don't have an account? <br>Please <a href="register.php">register here</a></p>
-                </fieldset>
+                <p id="small-text">Don't have an account? <br>Please <a href="register.php">register here</a></p>
                 
-                <?php
-                    // checking for error, print error message
-                    if($error) {
-                        echo "<p id='alert'>";
-                        echo $error;
-                        echo "</p>";
-                    }
-                ?>
         </div>
         <?php
     }

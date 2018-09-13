@@ -15,33 +15,30 @@
     // garbage collection on every pageload
     ini_set("session.gc_probability", 100);
 
+    // displaying errors
     ini_set('display_errors', 1);
     ini_set('display_startup_errors', 1);
     error_reporting(E_ALL);
 
+    // including class
     include_once("class.User.php");
     
 
-    // check if any value is submitted
+    // checking if any value is submitted
     if(isset($_POST["submit"])){
 
+        // if forms are empty display error message and reload
         if(empty($_POST["userName"]) || empty($_POST["userPassword"])) {
             
-            $error2 = "Please fill in the forms.";
-            // echo "<p id='alert'>Please fill in the forms.</p>";
-            // // sleep(2);
-            echo "<script type='text/javascript'>
-                document.location.href = 'register.php'; </script>";
-            
-            
+            echo "<p id='alert'>Please fill in the forms.</p>";?>
+            <script>
+                setTimeout(function(){
+                    window.location = "register.php";
+                    }, 2000);
+            </script><?php           
         }
-        // Ska skicka tillbaka till Login-sidan - FUNKAR EJ
-        // if(!empty($_POST["userName"]) || empty("userPassword")) {
 
-        //     // sending user to log in page
-        //     header("Location: index.php");
-        // }
-        
+        // If forms are filled in: saving user and redirecting to login page
         if(!empty($_POST["userName"]) || empty("userPassword")) {
             $user1 = new User();
             $arrayPost = $_POST;
@@ -49,21 +46,21 @@
             $user1->setter($arrayPost);
             $user1->saveUserName();   
 
-            // saving username and password to csv file - **** DETTA KODBLOCK LIGGER NU I KLASSEN ****
-            // $fileHandle = fopen("user4.csv", "w+");
-            // $writeString = serialize($arrayPost) . PHP_EOL;
-            // fwrite($fileHandle, $writeString);
-            // fclose($fileHandle);
-
-            // saving data in session
+            // saving data in session - behövs denna???
             $userName = $_POST["userName"];
             $_SESSION["userName"] = $_POST["userName"];
             $password = $_POST["userPassword"];
             $_SESSION["userPassword"] = $_POST["userPassword"];
+            ?>
+            <script>
+                setTimeout(function(){
+                    window.location = "index.php";
+                    }, 100);
+            </script><?php
         }
     }
-    else {
-        echo $user1->getForm("session_register.php");
-    }
+    // else {
+    //     echo $user1->getForm("session_register.php");
+    // }
 
 ?>

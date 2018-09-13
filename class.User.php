@@ -11,10 +11,6 @@
             return $this->userPassword;
         }
 
-        // tog bort constructor och setters - överflödiga
-
-        // -----------------------------------------------------
-
         public function setter($postData) {
             foreach ($postData as $key => $value) {
               $this->$key = $value;
@@ -24,7 +20,8 @@
         // Register user - saving username and password into csv file
         public function saveUserName() {
             $fileHandle = fopen($this->userName . ".csv", "w+"); // lagt in $this->userName
-            $writeString = serialize($this->userName) . serialize($this->userPassword) . PHP_EOL;
+            // $writeString = serialize($this->userName) . serialize($this->userPassword) . PHP_EOL;
+            $writeString = ($this->userName) . ',' . ($this->userPassword) . PHP_EOL;
             fwrite($fileHandle, $writeString);
             fclose($fileHandle);
         }
@@ -36,7 +33,7 @@
             foreach ($this as $key => $value) {
         
               $formString .= "<label for='$key'>$key</label>";
-              $formString .= "<input class='text-input' type ='text' name='$key'><br />";
+              $formString .= "<input class='text-input' type ='password' name='$key'><br />";
         
             }
             $formString .= "<input class='btn' type='submit' name='submit' value='LOGIN'>";
@@ -48,25 +45,34 @@
         public function loginUser($postData){
             
             $csvUserData = array_map('str_getcsv', file($postData['userName'] . ".csv"));
-            $csvUserName = $csvUserData[0];
-            $csvUserPassword = $csvUserData[1];
-            //print_r($csvUserName);
-            //print_r($userPassword);
+            $csvUserName = $csvUserData[0][0];
+            $csvUserPassword = $csvUserData[0][1];
 
-            if($postData["userName"] != $csvUserName || $postData["userPassword"] != $csvUserPassword){
-                $error = "Your username and/or password was not entered correctly. Please try again.";
+            // print_r($csvUserData);
+            // print_r($csvUserName);
+            // print_r($csvUserPassword);
+
+            if($postData['userName'] != $csvUserName || $postData['userPassword'] != $csvUserPassword){
+                echo "Your username and/or password was not entered correctly. Please try again.";?>
+                <script>
+                setTimeout(function(){
+                    window.location = "index.php";
+                    }, 3000);
+                </script><?php
             }
 
-            else {
-                // sending user to logged in page
+            elseif($postData['userName'] = $csvUserName || $postData['userPassword'] = $csvUserPassword){
                 header("Location: profile_page.php");
             }
 
-
-
+            else {
+                echo "No values inserted. Please fill in the forms.";?>
+                <script>
+                setTimeout(function(){
+                    window.location = "index.php";
+                    }, 3000);
+                </script><?php
+            }
         }
-
     }
-
-
 ?>
