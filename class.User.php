@@ -1,3 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">  
+<head>
+    <meta charset="UTF-8">
+    <title>PHP - Labb 2 - Anders Eriksson</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+</body>
+</html>
+
 <?php
     class User {
         private $userName;
@@ -53,7 +64,7 @@
             // print_r($csvUserPassword);
 
             if($postData['userName'] != $csvUserName || $postData['userPassword'] != $csvUserPassword){
-                echo "Your username and/or password was not entered correctly. Please try again.";?>
+                echo "<p id='alert'>Your username and/or password was not entered correctly. Please try again.</p>";?>
                 <script>
                 setTimeout(function(){
                     window.location = "index.php";
@@ -66,7 +77,7 @@
             }
 
             else {
-                echo "No values inserted. Please fill in the forms.";?>
+                echo "<p id='alert'>No values inserted. Please fill in the forms.</p>";?>
                 <script>
                 setTimeout(function(){
                     window.location = "index.php";
