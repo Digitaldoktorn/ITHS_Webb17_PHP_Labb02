@@ -1,6 +1,6 @@
 <?php
     include_once('class.User.php');
-    $user1 = new User();
+    $user = new User();
 
 ?>
 
@@ -15,7 +15,7 @@
     <div>
         <section>
 
-            <h1>Welcome <?php echo $user1->getUserName(); ?>! </h1>
+            <h1>Welcome <?php echo $user->getUserName(); ?>! </h1>
                 <p>
                     You are now logged in to your profile page!<br> <br>
                     This is your profile: <br>
@@ -25,8 +25,8 @@
                             <th>Password</th>
                         </tr>
                         <tr>
-                            <td><?php echo $user1->getUserName(); ?></td>
-                            <td><?php echo $user1->getUserPassword(); ?></td>
+                            <td><?php echo $user->getUserName(); ?></td>
+                            <td><?php echo $user->getUserPassword(); ?></td>
                         </tr>
 
                     </table>

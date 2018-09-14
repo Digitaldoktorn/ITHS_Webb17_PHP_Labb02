@@ -40,11 +40,11 @@
 
         // If forms are filled in: saving user and redirecting to login page
         if(!empty($_POST["userName"]) || empty("userPassword")) {
-            $user1 = new User();
+            $user = new User();
             $arrayPost = $_POST;
             array_pop($arrayPost); // removes submit value from array
-            $user1->setter($arrayPost);
-            $user1->saveUserName();   
+            $user->setter($arrayPost);
+            $user->saveUserName();   
 
             // saving data in session - behövs denna???
             $userName = $_POST["userName"];
@@ -60,7 +60,7 @@
         }
     }
     // else {
-    //     echo $user1->getForm("session_register.php");
+    //     echo $user->getForm("session_register.php");
     // }
 
 ?>
