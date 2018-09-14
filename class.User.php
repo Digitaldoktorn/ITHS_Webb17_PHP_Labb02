@@ -52,9 +52,14 @@ error_reporting(E_ALL);
             $formString = "<form action=$page method='POST'>";
         
             foreach ($this as $key => $value) {
-        
-              $formString .= "<label for='$key'>$key</label>";
-              $formString .= "<input class='text-input' type ='password' name='$key'><br />";
+                if($key == "userPassword"){
+                    $formString .= "<label for='$key'>$key</label>";
+                    $formString .= "<input class='text-input' type ='password' name='$key'><br />";
+                }
+                else {
+                    $formString .= "<label for='$key'>$key</label>";
+                    $formString .= "<input class='text-input' type ='text' name='$key'><br />";
+                }
         
             }
             $formString .= "<input class='btn' type='submit' name='submit' value='LOGIN'>";
