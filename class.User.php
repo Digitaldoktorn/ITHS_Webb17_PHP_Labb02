@@ -10,6 +10,11 @@
 </html>
 
 <?php
+
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
     class User {
         private $userName;
         private $userPassword;
@@ -69,9 +74,9 @@
             // print_r($csvUserData);
             // print_r($csvUserName);
             // print_r($csvHashedPassword);
-            print_r($verifiedPassword);
+            // print_r($verifiedPassword);
 
-            if($postData['userName'] != $csvUserName || $postData['userPassword'] != $csvUserPassword){
+            if($postData['userName'] != $csvUserName || $verifiedPassword != 1){
                 echo "<p id='alert'>Your username and/or password was not entered correctly. Please try again.</p>";?>
                 <script>
                 setTimeout(function(){
@@ -80,8 +85,11 @@
                 </script><?php
             }
 
-            elseif($postData['userName'] == $csvUserName || $verifiedPassword == 1){
+            elseif($postData['userName'] == $csvUserName && $verifiedPassword == 1){
+                session_start();
+                $_SESSION['userName'] = $csvUserName;
                 header("Location: profile_page.php");
+                exit();
             }
 
             else {
