@@ -62,8 +62,6 @@
             </script><?php
         }
     }
-    // else {
-    //     echo $user->getForm("session_register.php");
-    // }
+
 
 ?>

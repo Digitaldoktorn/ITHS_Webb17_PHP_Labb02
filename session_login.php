@@ -9,13 +9,14 @@
     include_once("class.User.php");
     $user = new User();
 
-    // checking if submit button is clicked - 
+    // checking if submit button is clicked - then loggin in user
     if(isset($_POST["submit"])){
 
         $user->loginUser($_POST);
         
     }
     
+    // printing form to the page
     else {?>
         <div>
             <h3 id="user-login">USER LOGIN</h3>
