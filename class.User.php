@@ -27,6 +27,7 @@
             return $this->userPassword;
         }
 
+        // setter
         public function setter($postData) {
             foreach ($postData as $key => $value) {
               $this->$key = $value;
@@ -41,6 +42,7 @@
             // hashing password
             $hashedPassword = password_hash($thisUserPassword, PASSWORD_DEFAULT);
 
+            // writing to file
             $fileHandle = fopen($thisUserName . ".csv", "w+");
             $writeString = ($thisUserName) . ',' . ($hashedPassword) . PHP_EOL;
             fwrite($fileHandle, $writeString);
@@ -71,6 +73,7 @@
         // Logging in user - comparing user input with user csv file
         public function loginUser($postData){
             
+            // getting data from csv file
             $csvUserData = array_map('str_getcsv', file($postData['userName'] . ".csv"));
             $csvUserName = $csvUserData[0][0];
             $csvHashedPassword = $csvUserData[0][1];
@@ -82,7 +85,7 @@
             // print_r($csvHashedPassword);
             // print_r($verifiedPassword);
 
-            
+            // loggin in user if username and pw are correct, starting session
             if($postData['userName'] == $csvUserName && $verifiedPassword == 1){
                 session_start();
                 $_SESSION['userName'] = $csvUserName;
@@ -90,6 +93,7 @@
                 exit();
             }
 
+            // printing error message and reloading page if not correct
             elseif($postData['userName'] != $csvUserName || $verifiedPassword != 1){
                 echo "<div><section><p id='alert'>Your username and/or password was not entered correctly. <br>Please try again...</p></div></section>";?>
                 <script>
@@ -99,6 +103,7 @@
                 </script><?php
             }
 
+            // if fields are empty, print different message - doesn't work!
             else {
                 echo "<div><section><p id='alert'>No values inserted. Please fill in the forms.</p></div></section>";?>
                 <script>

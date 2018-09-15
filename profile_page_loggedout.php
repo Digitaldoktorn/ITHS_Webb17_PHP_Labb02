@@ -17,6 +17,7 @@
     </div>
 </body>
 <script>
+    // sends user to "session_logout"
     setTimeout(function(){
         window.location = "session_logout.php";
         }, 2000);

@@ -1,7 +1,8 @@
 <?php
     session_start();
     include_once('class.User.php');
-    $csvUserName = $_SESSION['userName'];
+
+    $loggedInUser = $_SESSION['userName'];
 
 ?>
 
@@ -16,7 +17,7 @@
     <div>
         <section>
             
-            <h1>Welcome <?php echo $csvUserName; ?>! </h1>
+            <h1>Welcome <?php echo $loggedInUser; ?>! </h1>
                 <p>
                     You are now logged in to your profile page!<br> <br>
 
