@@ -16,9 +16,9 @@
     ini_set("session.gc_probability", 100);
 
     // displaying errors
-    ini_set('display_errors', 1);
-    ini_set('display_startup_errors', 1);
-    error_reporting(E_ALL);
+    // ini_set('display_errors', 1);
+    // ini_set('display_startup_errors', 1);
+    // error_reporting(E_ALL);
 
     // including class
     include_once("class.User.php");
@@ -30,7 +30,7 @@
         // if forms are empty display error message and reload
         if(empty($_POST["userName"]) || empty($_POST["userPassword"])) {
             
-            echo "<p id='alert'>Please fill in the forms.</p>";?>
+            echo "<div><section><p id='alert'>Please fill in the forms.</p></section></div>";?>
             <script>
                 setTimeout(function(){
                     window.location = "register.php";
@@ -51,11 +51,14 @@
             // $_SESSION["userName"] = $_POST["userName"];
             // $password = $_POST["userPassword"];
             // $_SESSION["userPassword"] = $_POST["userPassword"];
-            // ?>
+            // 
+            
+            echo "<div><section><p id='alert2'>Account created!<br> You can now log in...</p></section></div>";?>
+            
             <script>
                 setTimeout(function(){
                     window.location = "index.php";
-                    }, 100);
+                    }, 2000);
             </script><?php
         }
     }

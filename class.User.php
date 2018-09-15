@@ -11,9 +11,9 @@
 
 <?php
 
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
+// ini_set('display_errors', 1);
+// ini_set('display_startup_errors', 1);
+// error_reporting(E_ALL);
 
     class User {
         private $userName;
@@ -49,6 +49,7 @@ error_reporting(E_ALL);
 
         // Creating form
         public function getForm($page) {
+            
             $formString = "<form action=$page method='POST'>";
         
             foreach ($this as $key => $value) {
@@ -81,24 +82,25 @@ error_reporting(E_ALL);
             // print_r($csvHashedPassword);
             // print_r($verifiedPassword);
 
-            if($postData['userName'] != $csvUserName || $verifiedPassword != 1){
-                echo "<p id='alert'>Your username and/or password was not entered correctly. Please try again.</p>";?>
-                <script>
-                setTimeout(function(){
-                    window.location = "index.php";
-                    }, 3000);
-                </script><?php
-            }
-
-            elseif($postData['userName'] == $csvUserName && $verifiedPassword == 1){
+            
+            if($postData['userName'] == $csvUserName && $verifiedPassword == 1){
                 session_start();
                 $_SESSION['userName'] = $csvUserName;
                 header("Location: profile_page.php");
                 exit();
             }
 
+            elseif($postData['userName'] != $csvUserName || $verifiedPassword != 1){
+                echo "<div><section><p id='alert'>Your username and/or password was not entered correctly. <br>Please try again...</p></div></section>";?>
+                <script>
+                setTimeout(function(){
+                    window.location = "index.php";
+                    }, 4000);
+                </script><?php
+            }
+
             else {
-                echo "<p id='alert'>No values inserted. Please fill in the forms.</p>";?>
+                echo "<div><section><p id='alert'>No values inserted. Please fill in the forms.</p></div></section>";?>
                 <script>
                 setTimeout(function(){
                     window.location = "index.php";

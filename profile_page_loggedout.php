@@ -18,7 +18,7 @@
 </body>
 <script>
     setTimeout(function(){
-        window.location = "index.php";
+        window.location = "session_logout.php";
         }, 2000);
 </script>
 </html>

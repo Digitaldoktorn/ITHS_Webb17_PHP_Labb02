@@ -15,7 +15,7 @@
 <body>
     <div>
         <section>
-
+            
             <h1>Welcome <?php echo $csvUserName; ?>! </h1>
                 <p>
                     You are now logged in to your profile page!<br> <br>
@@ -23,7 +23,6 @@
                 <br><br>
                 </p>
                 <p><a href="profile_page_loggedout.php">LOG OUT</a></p>
-            </form>
         </section>
     </div>
     
