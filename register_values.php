@@ -9,11 +9,6 @@
 </body>
 </html>
 <?php
-    // starting session, available for garbage collection in 60s
-    session_start(["gc_maxlifetime" => 60]);
-
-    // garbage collection on every pageload
-    ini_set("session.gc_probability", 100);
 
     // displaying errors
     // ini_set('display_errors', 1);
@@ -45,13 +40,6 @@
             array_pop($arrayPost); // removes submit value from array
             $user->setter($arrayPost);
             $user->saveUserName();   
-
-            // // saving data in session - behövs denna??? nej
-            // $userName = $_POST["userName"];
-            // $_SESSION["userName"] = $_POST["userName"];
-            // $password = $_POST["userPassword"];
-            // $_SESSION["userPassword"] = $_POST["userPassword"];
-            // 
             
             echo "<div><section><p id='alert2'>Account created!<br> You can now log in...</p></section></div>";?>
             
@@ -62,6 +50,5 @@
             </script><?php
         }
     }
-
 
 ?>

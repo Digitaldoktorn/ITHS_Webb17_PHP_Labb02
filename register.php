@@ -9,7 +9,7 @@
 <body>
     <div>
     <h3>CREATE YOUR ACCOUNT</h3>
-        <form id="register" action="session_register.php" method="POST">
+        <form id="register" action="register_values.php" method="POST">
                     
                     <label for="username">Username</label>
                     <input class="text-input" name="userName" type="text"><br>
